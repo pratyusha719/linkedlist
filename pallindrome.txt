@@ -1,0 +1,31 @@
+int Solution::lPalin(ListNode* A) {
+ stack<int>s;
+ ListNode*ptr;
+ ptr=A;
+ 
+ while(ptr!=NULL)
+ {
+     s.push(ptr->val);
+     ptr=ptr->next;
+ }
+ int flag=0;
+ ptr=A;
+ while(!s.empty())
+ {
+     if(ptr->val==s.top())
+     {
+         ptr=ptr->next;
+         s.pop();
+     }
+     else
+     {
+         flag=1;
+         break;
+     }
+ }
+ 
+ if(flag==0)
+ return 1;
+ else
+ return 0;
+}
