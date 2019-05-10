@@ -1,0 +1,27 @@
+ListNode* loop(ListNode *p,ListNode *A)
+ {
+     ListNode *q=A;
+     while(p!=q)
+     {
+         p=p->next;
+         q=q->next;
+     }
+     return p;
+ }
+ListNode* Solution::detectCycle(ListNode* A) {
+   
+ListNode*p,*q;
+p=A;
+q=A;
+
+while(p && q && q->next)
+{
+    p=p->next;
+    q=q->next->next;
+    if(p==q)
+    return loop(p,A);
+}
+ListNode *ptr;
+ptr=NULL;
+   return ptr; 
+}
