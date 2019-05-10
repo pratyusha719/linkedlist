@@ -1,0 +1,36 @@
+ListNode* Solution::rotateRight(ListNode* A, int B) {
+    
+    if(A==NULL)
+    return A;
+    
+    if(B==0)
+    return A;
+    
+    
+    
+ListNode* ptr;
+ptr=A;
+int k=0;
+while(ptr->next!=NULL)
+{
+    ptr=ptr->next;
+    k++;
+}
+
+
+ptr->next=A;
+B=B%(k+1);
+int n=k-B;
+ptr=A;
+while(n>0)
+{
+    ptr=ptr->next;
+    n--;
+}
+
+A=ptr->next;
+ptr->next=NULL;
+
+return A;
+
+}
